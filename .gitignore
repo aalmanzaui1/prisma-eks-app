@@ -30,3 +30,4 @@ override.tf.json
 
 .vscode/
 node_modules/
+.next/
