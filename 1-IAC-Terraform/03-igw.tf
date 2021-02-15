@@ -1,0 +1,10 @@
+resource "aws_internet_gateway" "main-gw" {
+  provider = aws.region-master
+  vpc_id   = aws_vpc.main.id
+
+  tags = {
+    Name        = "igw"
+    environment = var.env
+    deploy      = var.deploy-name
+  }
+}
