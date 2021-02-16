@@ -5,17 +5,31 @@ Deploy Next.js application
 
 Given this project deploy it to AWS in an automated and reproducible fashion. The website should be reachable from all over the world.
 
+[Infraestructure as a code] (https://github.com/aalmanzaui1/prisma-eks-app/tree/main/1-IAC-Terraform)
+
 ## Task 2 
 
 Restrict access to the site by using mechanisms that can be adapted programmatically.
+
+[Infraestructure as a code] (https://github.com/aalmanzaui1/prisma-eks-app/tree/main/1-IAC-Terraform)
+ 
+ variables.tf 26 line 
 
 ## Task 3 
 
 Deploy the site using at least 2 technology stacks. Make sure that both types of deployment can be reproduced in an automated fashion.
 
+This proyect use :
+1. Terraform
+2. Docker
+3. Kubernetes
+4. Jenkins
+
 ## Task 4 
 
 What issues can you identify in the given site? What types of improvements would you suggest?
+
+When the start command is executed the frontend app shown an error 404 not found, this is because the names of the applications are wrong, I need to modified the extension to js. I found that routes on nextjs 
 
 
 # Table of Contents
@@ -157,6 +171,10 @@ terraform destroy -var="deploy-name=prisma-app-lab-a" -var="env=dev"
 docker pull alvaroalmanza/jenkins-sword:v1
 
 ```
+
+If you prefer to build the container locally, you can clone this repo:
+
+[Jenkins-sword](https://github.com/aalmanzaui1/jenkins-sword.git)
 
 ### Run the Jenkins Sword
 
