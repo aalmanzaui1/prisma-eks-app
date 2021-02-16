@@ -162,7 +162,7 @@ docker pull alvaroalmanza/jenkins-sword:v1
 
 ### CLONE THE REPO
 
-git clone https://github.com/aalmanzaui1/prisma-eks-app.git
+git clone (https://github.com/aalmanzaui1/prisma-eks-app.git)
 
 Get this points before run the docker 
  
