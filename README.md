@@ -29,7 +29,9 @@ This proyect use :
 
 What issues can you identify in the given site? What types of improvements would you suggest?
 
-When the start command is executed the frontend app shown an error 404 not found, this is because the names of the applications are wrong, I need to modified the extension to js. I found that routes on nextjs 
+When the start command is executed the frontend app shown an error 404 not found, this is because the names of the applications are wrong, I need to modified the extension to js. I found in the documentation: (https://nextjs.org/docs/basic-features/pages)
+
+that the routes are based on the files with extensions .js, .jsx, .ts, or .tsx allocated in the pages directory
 
 
 # Table of Contents
