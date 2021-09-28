@@ -1,35 +1,24 @@
 version: 2.1
 orbs:
-  terraform: "circleci/terraform@3.0.0"
-jobs:
-  single-job-lifecycle:
-    executor: terraform/default
-    steps:
-      - checkout
-      - run:
-          command: >-
-            echo "credentials \"app.terraform.io\" {token =
-            \"$TERRAFORM_TOKEN\"}" > $HOME/.terraformrc
-          name: Create .terraformrc file locally
-      - terraform/install:
-          arch: amd64
-          os: linux
-          terraform_version: 0.14.2
-      - terraform/fmt:
-          path: .
-      - terraform/validate:
-          path: .
-      - terraform/init:
-          path: .
-      - terraform/plan:
-          path: .
-      - terraform/apply:
-          path: .
-      - terraform/destroy:
-          path: .
-    working_directory: ./1-IAC-Terraform
+  terraform: "circleci/terraform@dev:alpha"
 workflows:
-  single-job-lifecycle:
+  deploy_infrastructure:
     jobs:
-      - single-job-lifecycle
+      - terraform/fmt:
+          checkout: true
+          context: terraform
+          workspace-root: ./1-IAC-Terraform
+      - terraform/validate:
+          checkout: true
+          context: terraform
+          workspace-root: ./1-IAC-Terraform
+          requires:
+            - terraform/fmt
+      - terraform/plan:
+          checkout: true
+          context: terraform
+          persist-workspace: true
+          workspace-root: ./1-IAC-Terraform
+          requires:
+            - terraform/validate
 
