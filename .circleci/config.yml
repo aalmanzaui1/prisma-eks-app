@@ -3,7 +3,11 @@ orbs:
   terraform: "circleci/terraform@1.1.0"
 workflows:
   deploy_infrastructure:
-    jobs: 
+    jobs:
+      - terraform/init:
+          checkout: true
+          context: terraform
+          workspace-root-dir: 1-IAC-Terraform
       - terraform/fmt:
           checkout: true
           context: terraform
