@@ -19,4 +19,6 @@
   workflows:
     single-job-lifecycle:
       jobs:
-        - single-job-lifecycle
+        - single-job-lifecycle:
+            context:
+              - terraform
