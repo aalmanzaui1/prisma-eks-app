@@ -15,6 +15,7 @@
             path: "."
         - terraform/plan:
             path: "./1-IAC-Terraform"
+            var: "deploy-name=almanza-cluster,env=dev"
   workflows:
     single-job-lifecycle:
       jobs:
