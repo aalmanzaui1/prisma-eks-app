@@ -3,16 +3,19 @@ orbs:
   terraform: "circleci/terraform@1.1.0"
 workflows:
   deploy_infrastructure:
-    jobs:
+    jobs: 
       - terraform/fmt:
+          path: 1-IAC-Terraform
           checkout: true
           context: terraform
       - terraform/validate:
+          path: 1-IAC-Terraform
           checkout: true
           context: terraform
           requires:
             - terraform/fmt
       - terraform/plan:
+          path: 1-IAC-Terraform
           checkout: true
           context: terraform
           persist-workspace: true
