@@ -5,20 +5,20 @@ workflows:
   deploy_infrastructure:
     jobs: 
       - terraform/fmt:
-          path: 1-IAC-Terraform
           checkout: true
           context: terraform
+          workspace-root: 1-IAC-Terraform
       - terraform/validate:
-          path: 1-IAC-Terraform
           checkout: true
           context: terraform
+          workspace-root: 1-IAC-Terraform
           requires:
             - terraform/fmt
       - terraform/plan:
-          path: 1-IAC-Terraform
           checkout: true
           context: terraform
           persist-workspace: true
+          workspace-root: 1-IAC-Terraform
           requires:
             - terraform/validate
 
