@@ -15,7 +15,7 @@
             path: "."
         - terraform/plan:
             path: "./1-IAC-Terraform"
-            var: "deploy-name=almanza-cluster,env=dev,access_key=$aws_access_key_id,secret_key=aws_secret_access_key"
+            var: "deploy-name=almanza-cluster,env=dev,access_key=$aws_access_key_id,secret_key=$aws_secret_access_key"
   workflows:
     single-job-lifecycle:
       jobs:
