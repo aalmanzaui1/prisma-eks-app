@@ -4,10 +4,6 @@ orbs:
 workflows:
   deploy_infrastructure:
     jobs:
-      - terraform/init:
-          checkout: true
-          context: terraform
-          workspace-root-dir: ./1-IAC-Terraform
       - terraform/fmt:
           checkout: true
           context: terraform
