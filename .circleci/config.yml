@@ -1,24 +1,30 @@
 version: 2.1
 orbs:
   terraform: "circleci/terraform@3.0.0"
-workflows:
-  deploy_infrastructure:
-    jobs:
+jobs:
+  single-job-lifecycle:
+    executor: terraform/default
+    steps:
+      - checkout
+      - terraform/install:
+          arch: amd64
+          os: linux
+          terraform_version: 0.14.6
       - terraform/fmt:
-          checkout: true
-          context: terraform
-          workspace-root: ./1-IAC-Terraform
+          path: .
       - terraform/validate:
-          checkout: true
-          context: terraform
-          workspace-root: ./1-IAC-Terraform
-          requires:
-            - terraform/fmt
+          path: .
+      - terraform/init:
+          path: .
       - terraform/plan:
-          checkout: true
-          context: terraform
-          persist-workspace: true
-          workspace-root: ./1-IAC-Terraform
-          requires:
-            - terraform/validate
+          path: .
+      - terraform/apply:
+          path: .
+      - terraform/destroy:
+          path: .
+    working_directory: ./1-IAC-Terraform
+workflows:
+  single-job-lifecycle:
+    jobs:
+      - single-job-lifecycle
 
