@@ -7,22 +7,22 @@ workflows:
       - terraform/init:
           checkout: true
           context: terraform
-          workspace-root-dir: 1-IAC-Terraform
+          workspace-root-dir: ./1-IAC-Terraform
       - terraform/fmt:
           checkout: true
           context: terraform
-          workspace-root: 1-IAC-Terraform
+          workspace-root: ./1-IAC-Terraform
       - terraform/validate:
           checkout: true
           context: terraform
-          workspace-root: 1-IAC-Terraform
+          workspace-root: ./1-IAC-Terraform
           requires:
             - terraform/fmt
       - terraform/plan:
           checkout: true
           context: terraform
           persist-workspace: true
-          workspace-root: 1-IAC-Terraform
+          workspace-root: ./1-IAC-Terraform
           requires:
             - terraform/validate
 
