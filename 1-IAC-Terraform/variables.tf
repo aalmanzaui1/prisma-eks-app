@@ -44,9 +44,9 @@ variable "access_key" {
   default = ""
 }
 
-variable "vpc-cidr" {
+variable "secret_key" {
   type    = string
-  default = "secret_key"
+  default = ""
 }
 # variable "availability_zone_names" {
 #   type    = list(string)
