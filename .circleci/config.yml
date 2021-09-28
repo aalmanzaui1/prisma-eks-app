@@ -4,21 +4,17 @@
   jobs:
     single-job-lifecycle:
       executor: terraform/default
-      working_directory: "./-IAC-Terraform"
+      working_directory: "~/src"
       steps:
         - checkout
         - terraform/init:
-            path: "."
+            path: "./1-IAC-Terraform"
         - terraform/validate:
-            path: "."
+            path: "./1-IAC-Terraform"
         - terraform/fmt:
-            path: "."
+            path: "./1-IAC-Terraform"
         - terraform/plan:
-            path: "."
-        - terraform/apply:
-            path: "."
-        - terraform/destroy:
-            path: "."
+            path: "./1-IAC-Terraform"
   workflows:
     single-job-lifecycle:
       jobs:
