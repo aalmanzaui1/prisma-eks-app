@@ -13,7 +13,7 @@
             path: "./1-IAC-Terraform"
         - terraform/fmt:
             recursive: true
-            path: "./1-IAC-Terraform"
+            path: "."
         - terraform/plan:
             path: "./1-IAC-Terraform"
   workflows:
