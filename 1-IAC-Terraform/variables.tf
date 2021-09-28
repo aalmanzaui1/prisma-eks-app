@@ -38,6 +38,16 @@ variable "AWS_ACCOUNT_ID"{
   type    = string
   default = "111111111111"
 }
+
+variable "access_key" {
+  type    = string
+  default = ""
+}
+
+variable "vpc-cidr" {
+  type    = string
+  default = "secret_key"
+}
 # variable "availability_zone_names" {
 #   type    = list(string)
 #   #default = ["us-west-1a"]
