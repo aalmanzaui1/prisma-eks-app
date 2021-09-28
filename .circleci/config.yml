@@ -4,7 +4,7 @@
   jobs:
     single-job-lifecycle:
       executor: terraform/default
-      working_directory: "~/src/1-IAC-Terraform"
+      working_directory: "./-IAC-Terraform"
       steps:
         - checkout
         - terraform/init:
