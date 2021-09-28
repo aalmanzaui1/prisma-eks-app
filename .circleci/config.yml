@@ -12,7 +12,7 @@
         - terraform/validate:
             path: "./1-IAC-Terraform"
         - terraform/fmt:
-            path: "./1-IAC-Terraform"
+            recursive: true
         - terraform/plan:
             path: "./1-IAC-Terraform"
   workflows:
