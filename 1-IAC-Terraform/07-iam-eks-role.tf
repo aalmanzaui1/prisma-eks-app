@@ -37,7 +37,7 @@ resource "aws_iam_role_policy_attachment" "policy-attach-service" {
 
 resource "aws_iam_role" "eks-node-role" {
   provider = aws.region-master
-  name = "eks-node-group-example"
+  name     = "eks-node-group-example"
 
   assume_role_policy = jsonencode({
     Statement = [{
@@ -52,27 +52,27 @@ resource "aws_iam_role" "eks-node-role" {
 }
 
 resource "aws_iam_role_policy_attachment" "node-policy-AmazonEKSWorkerNodePolicy" {
-  provider = aws.region-master
+  provider   = aws.region-master
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"
   role       = aws_iam_role.eks-node-role.name
 }
 
 resource "aws_iam_role_policy_attachment" "node-policy-AmazonEKS_CNI_Policy" {
-  provider = aws.region-master
+  provider   = aws.region-master
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
   role       = aws_iam_role.eks-node-role.name
 }
 
 resource "aws_iam_role_policy_attachment" "node-policy-AmazonEC2ContainerRegistryReadOnly" {
-  provider = aws.region-master
+  provider   = aws.region-master
   policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"
   role       = aws_iam_role.eks-node-role.name
 }
 
 resource "aws_iam_policy" "external-dns" {
-  provider = aws.region-master
-  name = "external-dns"
-  policy = <<EOF
+  provider   = aws.region-master
+  name       = "external-dns"
+  policy     = <<EOF
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -103,7 +103,7 @@ EOF
 
 resource "aws_iam_role" "external-dns" {
   provider = aws.region-master
-  name = "external-dns"
+  name     = "external-dns"
 
   assume_role_policy = <<EOF
 {
@@ -124,12 +124,12 @@ resource "aws_iam_role" "external-dns" {
   ]
 }
 EOF
-  depends_on = [aws_eks_cluster.eks-cluster, aws_iam_openid_connect_provider.sa-provider]
+  depends_on         = [aws_eks_cluster.eks-cluster, aws_iam_openid_connect_provider.sa-provider]
 }
 
-resource "aws_iam_role_policy_attachment" "external-dns"{
-  provider = aws.region-master
-  role = aws_iam_role.external-dns.name
+resource "aws_iam_role_policy_attachment" "external-dns" {
+  provider   = aws.region-master
+  role       = aws_iam_role.external-dns.name
   policy_arn = aws_iam_policy.external-dns.arn
   depends_on = [aws_eks_cluster.eks-cluster, aws_iam_openid_connect_provider.sa-provider]
 }

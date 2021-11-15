@@ -69,7 +69,7 @@ resource "aws_security_group" "eks" {
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
-    cidr_blocks = ["10.1.3.0/24","10.1.4.0/24"]
+    cidr_blocks = ["10.1.3.0/24", "10.1.4.0/24"]
   }
 
   egress {

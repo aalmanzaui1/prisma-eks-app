@@ -5,6 +5,7 @@
 *.tfstate
 *.tfstate.*
 .terraform
+.terraform.lock.hcl
 
 # Crash log files
 crash.log
@@ -32,3 +33,5 @@ override.tf.json
 .vscode/
 node_modules/
 .next/
+
+.DS_Store

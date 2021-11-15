@@ -5,7 +5,7 @@ variable "profile" {
 
 variable "region-master" {
   type    = string
-  default = "eu-west-1"
+  default = "us-east-1"
 }
 
 variable "env" {
@@ -24,9 +24,9 @@ variable "vpc-cidr" {
 }
 
 variable "ip-eks-access" {
-  type = list(string)
-  description =  "SET THIS WITH A SECURE PUBLIC IP"
-  default = ["0.0.0.0/0"]
+  type        = list(string)
+  description = "SET THIS WITH A SECURE PUBLIC IP"
+  default     = ["0.0.0.0/0"]
 }
 
 variable "eks-public-access" {
@@ -34,7 +34,7 @@ variable "eks-public-access" {
   default = true
 }
 
-variable "AWS_ACCOUNT_ID"{
+variable "AWS_ACCOUNT_ID" {
   type    = string
   default = "111111111111"
 }

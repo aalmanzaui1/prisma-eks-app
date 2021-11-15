@@ -5,6 +5,7 @@ resource "aws_eks_node_group" "eks-cluster-nodes" {
   node_group_name = "${var.deploy-name}-eks-nodes"
   node_role_arn   = aws_iam_role.eks-node-role.arn
   subnet_ids      = [aws_subnet.subnet-private-3.id, aws_subnet.subnet-private-4.id]
+  instance_types  = ["t3.medium"]
   capacity_type   = "SPOT"
 
   scaling_config {

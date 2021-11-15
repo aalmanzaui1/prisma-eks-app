@@ -8,7 +8,7 @@ resource "aws_eks_cluster" "eks-cluster" {
     endpoint_private_access = true
     endpoint_public_access  = var.eks-public-access
     public_access_cidrs     = var.ip-eks-access
-    security_group_ids = [aws_security_group.eks.id]
+    security_group_ids      = [aws_security_group.eks.id]
   }
 
   # Ensure that IAM Role permissions are created before and deleted after EKS Cluster handling.
@@ -21,12 +21,12 @@ resource "aws_eks_cluster" "eks-cluster" {
 
 resource "aws_iam_openid_connect_provider" "sa-provider" {
   provider = aws.region-master
-  url = aws_eks_cluster.eks-cluster.identity[0].oidc[0].issuer
+  url      = aws_eks_cluster.eks-cluster.identity[0].oidc[0].issuer
 
   client_id_list = [
     "sts.amazonaws.com"
   ]
 
   thumbprint_list = ["9E99A48A9960B14926BB7F3B02E22DA2B0AB7280"]
-  depends_on = [aws_eks_cluster.eks-cluster]
+  depends_on      = [aws_eks_cluster.eks-cluster]
 }

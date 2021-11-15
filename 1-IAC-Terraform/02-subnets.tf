@@ -12,10 +12,10 @@ resource "aws_subnet" "subnet-public-1" {
   availability_zone = element(data.aws_availability_zones.azs.names, 0)
 
   tags = {
-    Name        = "subnet-public-1"
-    environment = var.env
-    deploy      = var.deploy-name
-    "kubernetes.io/role/elb" = 1
+    Name                                       = "subnet-public-1"
+    environment                                = var.env
+    deploy                                     = var.deploy-name
+    "kubernetes.io/role/elb"                   = 1
     "kubernetes.io/cluster/${var.deploy-name}" = "shared"
   }
 }
@@ -28,10 +28,10 @@ resource "aws_subnet" "subnet-public-2" {
   availability_zone = element(data.aws_availability_zones.azs.names, 1)
 
   tags = {
-    Name        = "subnet-public-2"
-    environment = var.env
-    deploy      = var.deploy-name
-    "kubernetes.io/role/elb" = 1
+    Name                                       = "subnet-public-2"
+    environment                                = var.env
+    deploy                                     = var.deploy-name
+    "kubernetes.io/role/elb"                   = 1
     "kubernetes.io/cluster/${var.deploy-name}" = "shared"
   }
 }
@@ -44,10 +44,10 @@ resource "aws_subnet" "subnet-private-3" {
   availability_zone = element(data.aws_availability_zones.azs.names, 0)
 
   tags = {
-    Name        = "subnet-private-3"
-    environment = var.env
-    deploy      = var.deploy-name
-    "kubernetes.io/role/internal-elb" = 1
+    Name                                       = "subnet-private-3"
+    environment                                = var.env
+    deploy                                     = var.deploy-name
+    "kubernetes.io/role/internal-elb"          = 1
     "kubernetes.io/cluster/${var.deploy-name}" = "shared"
   }
 }
@@ -60,10 +60,10 @@ resource "aws_subnet" "subnet-private-4" {
   availability_zone = element(data.aws_availability_zones.azs.names, 1)
 
   tags = {
-    Name        = "subnet-private-4"
-    environment = var.env
-    deploy      = var.deploy-name
-    "kubernetes.io/role/internal-elb" = 1
+    Name                                       = "subnet-private-4"
+    environment                                = var.env
+    deploy                                     = var.deploy-name
+    "kubernetes.io/role/internal-elb"          = 1
     "kubernetes.io/cluster/${var.deploy-name}" = "shared"
   }
 }
